@@ -442,3 +442,29 @@ sys_pipe(void)
   fd[1] = fd1;
   return 0;
 }
+
+int
+sys_symlink(void)
+{
+  char *old, *new;
+  struct inode *ip;
+
+  if(argstr(0, &old) < 0 || argstr(1, &new) < 0)
+    return -1;
+
+  begin_op();
+  if((ip = create(new, T_SYMLINK, 0, 0)) == 0){
+    end_op();
+    return -1;
+  }
+
+  if(writei(ip, old, 0, strlen(old)) != strlen(old)){
+    iunlockput(ip);
+    end_op();
+    return -1;
+  }
+
+  iunlockput(ip);
+  end_op();
+  return 0;
+}

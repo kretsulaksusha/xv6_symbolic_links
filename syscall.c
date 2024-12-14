@@ -108,6 +108,7 @@ extern int sys_numproc(void);
 extern int sys_numopenfiles(void);
 extern int sys_freememp(void);
 extern int sys_spacesize(void);
+extern int sys_symlink(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]           sys_fork,
@@ -136,6 +137,7 @@ static int (*syscalls[])(void) = {
 [SYS_numopenfiles]   sys_numopenfiles,
 [SYS_freememp]       sys_freememp,
 [SYS_spacesize]      sys_spacesize,
+[SYS_symlink]	       sys_symlink,
 };
 
 void

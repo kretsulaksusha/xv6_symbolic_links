@@ -25,3 +25,4 @@
 #define SYS_numopenfiles  24
 #define SYS_freememp      25
 #define SYS_spacesize     26
+#define SYS_symlink       27

@@ -1,7 +1,7 @@
 # Additional lab work: xv6 Symbolic links
 Authors (team): [Ksenia Kretsula](https://github.com/kretsulaksusha)
 
-**Task**: ...
+**Task**: Add support of symbolic links to xv6.
 
 **Hardware**: CPU: Apple M1 Max; CPU cores (P+E): 10 (8+2).
 
@@ -37,10 +37,12 @@ Authors (team): [Ksenia Kretsula](https://github.com/kretsulaksusha)
 
 Described in [Homework: Naming](https://pdos.csail.mit.edu/6.828/2010/homework/xv6-names.html).
 
+A symbolic link is simply a file with a special type (e.g., `T_SYMLINK` instead of `T_FILE` or `T_DIR`) whose contents contain the path being linked to.
+
 **Steps:**
 
-1. ...
-2. ...
+1. Read: `namei` in `fs.c`, `file.c`, `sysfile.c`.
+2. 
 
 #### Implementation of symlink
 
