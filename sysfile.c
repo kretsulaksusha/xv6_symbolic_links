@@ -452,12 +452,13 @@ sys_symlink(void)
   if(argstr(0, &old) < 0 || argstr(1, &new) < 0)
     return -1;
 
-  begin_op();
+  begin_op(); // start a filesystem operation
   if((ip = create(new, T_SYMLINK, 0, 0)) == 0){
     end_op();
     return -1;
   }
 
+  ilock(ip);
   if(writei(ip, old, 0, strlen(old)) != strlen(old)){
     iunlockput(ip);
     end_op();

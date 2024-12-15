@@ -649,7 +649,7 @@ namex(struct inode *root, char *path, int nameiparent, char *name, int depth)
       return ip;
     }
     if((next = dirlookup(ip, name, 0)) == 0){
-      cprintf("did not find %s\n", name);
+      cprintf("No such directory: %s\n", name);
       iunlockput(ip);
       return 0;
     }
